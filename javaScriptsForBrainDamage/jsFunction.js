@@ -17,16 +17,16 @@
 //     else no();
 // }
 
-let said = (question, yes, no) => {
-    if(confirm(question)) yes
-        else no();
-}
+// let said = (question, yes, no) => {
+//     if(confirm(question)) yes
+//         else no;
+// }
 
-said(
-    "Do you agree?",
-    console.log("I agree"),
-    console.log("I DisAgree")
-);
+// said(
+//     "Do you agree?",
+//     console.log("I agree"),
+//     console.log("I DisAgree")
+// );
 
 
 // let age = prompt("What is your age?", 18);
@@ -35,3 +35,9 @@ said(
 //             () => console.log("Youre a minor") :
 //             () => console.log("Youre not a minor");
 // welcome();
+let num = 12;
+if(typeof 13 === "number"){
+    console.log("number");
+}else{
+    console.log("not a number");
+}
