@@ -14,5 +14,8 @@
 
 // document.getElementById('txt').innerHTML = text;
 
-let i = 5;
-while(i) console.log(i--);
+// let i = 5;
+// while(i) console.log(i--);
+
+let a = [1,2];
+console.log(typeof a);
