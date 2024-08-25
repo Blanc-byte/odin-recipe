@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+@media (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  @media (max-width: 425px) {
+    
+    body {
+        background-color: black;
+    }
+  }
