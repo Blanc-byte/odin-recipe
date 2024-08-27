@@ -26,8 +26,42 @@
         font-size: 20px;
         border: 2px solid darkblue;
     }
+    .container {
+        max-width: 200px;
+        margin: auto;
+    }
+
+    .svg-circle:hover + .svg-text-group {
+        opacity: 0;
+    }
+    :root {
+        --color:blue;
+    }
+    .fixed-box {
+        width: 100px;
+        height: 100px;
+        background-color: var(--color);
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+    
 </style>
 <body>
+    <div class="fixed-box">I'm fixed!</div>
+    <div style="height: 2000px;">Scroll down to see the effect</div>
+    <div class="container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <rect x=0 y=0 width=100 height=100 fill="burlywood"/>
+            <path d="M 10 10 H 90 V 90 L 10 60" fill="transparent" stroke="black" stroke-width="3"/>
+          <circle cx=50 cy=50 r=20 class="svg-circle"/>
+            <g class="svg-text-group">
+              <text x="20" y="25" rotate="10" id="hello-text">Hello!</text>
+              <use href="#hello-text" x="-10" y="65" fill="white"/>
+            </g>
+        </svg>
+        </div>
+      
     <h1>Flex-Wrap Example</h1>
     <div class="container">
         <div class="box">1</div>
