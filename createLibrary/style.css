@@ -1,0 +1,9 @@
+#myform{
+    display: none;
+    flex-direction: column;
+}
+#myform label, 
+#myform input,
+#myform button{
+    width: 100px;
+}
