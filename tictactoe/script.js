@@ -21,49 +21,58 @@ function changTurns(){
 }
 let player1 = [0,0];
 let player2 = [0,0];
+let boxClick = [];
+function checkIfPush(arrs, num){
+    return arrs.includes(num);
+}
 boxes.forEach((box,index) => {
     box.addEventListener('click', () => {
-        if(numberOfClicks<9){
-            if(turn%2===1){
-                box.style.backgroundColor = 'blue';
-                plyOneclicked.push(index);
-                changTurns();
-                if(checkWinner(plyOneclicked, winningIndexes)){
-                    alert("Player One Won");
-                    player1[0] += 1;
-                    player2[1] += 1;
-                    const oneWin = document.querySelector('.ply1 .record .win');
-                    const twoLose = document.querySelector('.ply2 .record .lose');
-                    oneWin.textContent = oneWin.textContent+player1[0];
-                    twoLose.textContent = twoLose.textContent+player2[1];
-                    updating('1');
+        if(!checkIfPush(boxClick,index)){
+            boxClick.push(index);
+            if(numberOfClicks<9){
+                if(turn%2===1){
+                    box.style.backgroundColor = 'blue';
+                    plyOneclicked.push(index);
+                    changTurns();
+                    if(checkWinner(plyOneclicked, winningIndexes)){
+                        alert("Player One Won");
+                        player1[0] += 1;
+                        player2[1] += 1;
+                        const oneWin = document.querySelector('.ply1 .record .win');
+                        const twoLose = document.querySelector('.ply2 .record .lose');
+                        oneWin.textContent = player1[0];
+                        twoLose.textContent = player2[1];
+                        updating('1');
+                    }
+                }else{
+                    box.style.backgroundColor = 'red';
+                    plyTwoclicked.push(index);
+                    changTurns();
+                    if(checkWinner(plyTwoclicked, winningIndexes)){
+                        alert("Player Two Won");
+                        player2[0] += 1;
+                        player1[1] += 1;
+                        const twoWin = document.querySelector('.ply2 .record .win');
+                        const oneLose = document.querySelector('.ply1 .record .lose');
+                        twoWin.textContent = player2[0];
+                        oneLose.textContent = player1[1];
+                        updating('2');
+                    }
                 }
+                turn++;
             }else{
-                box.style.backgroundColor = 'red';
-                plyTwoclicked.push(index);
-                changTurns();
-                if(checkWinner(plyTwoclicked, winningIndexes)){
-                    alert("Player Two Won");
-                    player2[0] += 1;
-                    player1[1] += 1;
-                    const twoWin = document.querySelector('.ply2 .record .win');
-                    const oneLose = document.querySelector('.ply1 .record .lose');
-                    twoWin.textContent = twoWin.textContent+player2[0];
-                    oneLose.textContent = oneLose.textContent+player1[1];
-                    updating('2');
-                }
+                alert("DRAW");
+                updating('DRAW');
             }
-            turn++;
-        }else{
-            alert("DRAW");
-            updating('DRAW');
+            numberOfClicks++;
         }
-        numberOfClicks++;
+        
     });
 });
 function updating(winner){
     plyOneclicked = [];
     plyTwoclicked = [];
+    boxClick = [];
     numberOfClicks = 0;
     if(winner==='1'){
         turn = 3;
@@ -74,8 +83,6 @@ function updating(winner){
         twoSvg.style.fill = 'white';
         oneSvg.style.fill = 'blue';
     }
-    
-    
     boxes.forEach((box) => {
         box.style.backgroundColor = 'black';
     });

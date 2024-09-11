@@ -55,3 +55,7 @@
 .box:hover{
     opacity: .5;
 }
+.winCon, .loseCon{
+    display: flex;
+    gap: 10px;
+}
