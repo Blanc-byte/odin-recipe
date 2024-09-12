@@ -1,0 +1,33 @@
+.rotate-by-deg {
+    transform: scaleX(1.5);
+    animation: 2s rotate infinite ease-in-out;
+}
+
+@keyframes rotate{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+  
+  body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  p {
+    margin-bottom: 16px;
+  }
+  
+  img {
+    width: 60px;
+  }
+  
+  div,
+  * + p {
+    margin-top: 1.5rem;
+  }
+  
